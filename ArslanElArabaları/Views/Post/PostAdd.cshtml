@@ -1,0 +1,34 @@
+﻿@model ArslanElArabaları.EntityLayer.Concrete.Post
+@{
+    ViewData["Title"] = "PostAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Yeni Post Oluştur</h1>
+@using (Html.BeginForm("PostAdd", "Post", FormMethod.Post))
+{
+    @Html.Label("Post Başlığı")
+    @Html.TextBoxFor(x=>x.PostTitle, new {@class = "form-control"})
+    @Html.ValidationMessageFor(x=>x.PostTitle)
+    <br />
+    @Html.Label("Post Görseli")
+    @Html.TextBoxFor(x=>x.PostImage, new {@class = "form-control"})
+    @Html.ValidationMessageFor(x=>x.PostImage)
+    <br />
+    <button class="btn btn-info">Yazıyı Kaydet</button>
+}
+@*<h1>Yeni Blog Oluştur</h1>
+@using (Html.BeginForm("PostAdd", "Post", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.LabelFor(x => x.PostTitle, "Post Başlığı")
+    @Html.TextBoxFor(x => x.PostTitle, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.PostTitle)
+    <br />
+    @Html.Label("Post Görseli")
+    <input type="file" id="PostImage" name="file" class="form-control" />
+    @Html.ValidationMessageFor(x => x.PostImage)
+    <br />
+    <button class="btn btn-info">Yazıyı Kaydet</button>
+}*@
+
+

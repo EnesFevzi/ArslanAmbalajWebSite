@@ -1,0 +1,34 @@
+﻿@using ArslanElArabaları.EntityLayer.Concrete
+@model List<Post>
+
+
+<!-- ======= Portfolio Section ======= -->
+<section id="portfolio" class="portfolio">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Ürünler</h2>
+           @* <p>Check out our beautifull portfolio</p>*@
+        </div>
+
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+            @foreach (var item in Model)
+            { 
+            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                <div class="portfolio-wrap">
+                        <img src="@item.PostImage" class="img-fluid" alt="" width="960" height="1280">
+                    <div class="portfolio-links">
+                            <a href="@item.PostImage" data-gallery="portfolioGallery" class="portfolio-lightbox" title="@item.PostTitle"><i class="bi bi-plus"></i></a>
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>@item.PostTitle</h4>
+                    </div>
+                </div>
+            </div>
+            }
+
+        </div>
+
+    </div>
+</section><!-- End Portfolio Section -->

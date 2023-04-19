@@ -1,0 +1,36 @@
+﻿@using ArslanElArabaları.EntityLayer.Concrete
+@model List<Post>
+@{
+    ViewData["Title"] = "PostListByWriter";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Postlar</h1>
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>ID</th>
+        <th>Post Başlığı</th>
+        <th>Oluşturma Tarihi</th>
+        <th>Durum</th>
+        <th>Sil</th>
+        <th>Düzenle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+
+
+            <th>@item.PostImage</th>
+            <th>@item.PostID</th>
+            <td>@item.PostTitle</td>
+            <td>@item.PostCreateDate.ToShortDateString()</td>
+            <td>
+                <a href="/Post/DeletePost/@item.PostID" class="btn btn-danger"
+                   onclick="return confirm('Silmek istediğinize emin misiniz?')">Sil</a>
+            <td> <a href="/Post/EditPost/@item.PostID" class="btn btn-warning">Düzenle</a></td>
+        </tr>
+    }
+</table>
+<a href="/Post/PostAdd/" class="btn btn-primary">Yeni Post Oluştur</a>
+

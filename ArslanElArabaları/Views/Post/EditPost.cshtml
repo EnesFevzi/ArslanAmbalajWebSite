@@ -1,0 +1,36 @@
+﻿@model ArslanElArabaları.EntityLayer.Concrete.Post
+@{
+    ViewData["Title"] = "EditPost";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("EditPost", "Post", FormMethod.Post))
+{
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-description"> Deneyim Düzenleme Paneli </p>
+                <form class="forms-sample">
+                    <div class="form-group">
+                        <label>ID</label>
+                        @Html.TextBoxFor(x => x.PostID, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                    <div class="form-group">
+                        <label>Gönderi İsmi</label>
+                        @Html.TextBoxFor(x => x.PostTitle, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Resim URL</label>
+                        @Html.TextBoxFor(x => x.PostImage, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Tarih</label>
+                        @Html.TextBoxFor(x => x.PostCreateDate, new { @class = "form-control" })
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Kaydet</button>
+                    <button class="btn btn-dark">İptal</button>
+                </form>
+            </div>
+        </div>
+    </div>
+}
